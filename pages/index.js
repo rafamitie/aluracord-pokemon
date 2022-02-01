@@ -19,25 +19,9 @@ function Titulo(props) {
   );
 }
 
-// Componente React
-// function HomePage() {
-//     // JSX
-//     return (
-//         <div>
-//             <GlobalStyle />
-//             <Titulo tag="h2">Boas vindas de volta!</Titulo>
-//             <h2>Discord - Alura Matrix</h2>
-//         </div>
-//     )
-// }
-// export default HomePage
-
 export default function PaginaInicial() {
-  //const username = 'rafamitie';
   const [username, setUsername]= React.useState('');
   const roteamento = useRouter();
-  //const minimo_nome = 0;
-
   return (
     <>
       
@@ -45,7 +29,8 @@ export default function PaginaInicial() {
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           //backgroundColor: appConfig.theme.colors.primary[500],-> tava deixando a imagem com um tom de verde por cima bem feiao
-          backgroundImage: 'url(http://static.minitokyo.net/downloads/18/11/743068.jpg)',
+          //backgroundImage: 'url(http://static.minitokyo.net/downloads/18/11/743068.jpg)',
+          backgroundImage:  'url(images/home.jpg)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
@@ -69,8 +54,8 @@ export default function PaginaInicial() {
             as="form"
             onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
-              console.log('Alguém submeteu o form');
-              roteamento.push('/chat');
+              //console.log('Alguém submeteu o form');
+              roteamento.push(`/chat?username=${username}`);
               // window.location.href = '/chat';
             }}
             styleSheet={{
@@ -86,8 +71,7 @@ export default function PaginaInicial() {
             <TextField
               value={username}
               onChange={function (event) {
-                console.log('usuario digitou', event.target.value);
-                   // Onde ta o valor?
+                //console.log('usuario digitou', event.target.value);
                 const valor = event.target.value;
                 // Trocar o valor da variavel
                 // através do React e avise quem precisa
@@ -115,7 +99,7 @@ export default function PaginaInicial() {
               }}
             />
           </Box>
-          {/* Formulário */}
+          {/*fim-Formulário */}
 
 
           {/* Photo Area */}
@@ -153,7 +137,7 @@ export default function PaginaInicial() {
               {username}
             </Text>
           </Box>
-          {/* Photo Area */}
+          {/*fim- Photo Area */}
         </Box>
       </Box>
     </>
